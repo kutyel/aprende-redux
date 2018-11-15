@@ -1,4 +1,5 @@
-import { createStore } from 'redux'
+import { createLogger } from 'redux-logger'
+import { createStore, applyMiddleware } from 'redux'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 
@@ -7,9 +8,11 @@ import posts from './data/posts.json'
 import comments from './data/comments.json'
 
 const initialState = { posts, comments }
-// TODO: create the Redux store
-
-// FIXME: it would be nice to have a way to log what happens in Redux... 🤔
+const store = createStore(
+  reducer,
+  initialState,
+  applyMiddleware(createLogger())
+)
 
 export const history = syncHistoryWithStore(browserHistory, store)
 export default store
