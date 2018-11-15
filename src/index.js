@@ -10,6 +10,9 @@ import store, { history } from './store'
 import App from './components/App'
 import Single from './components/Single'
 import PhotoGrid from './components/PhotoGrid'
+import { loadPosts } from './actions'
+
+store.dispatch(loadPosts())
 
 const router = (
   <Provider store={store}>
