@@ -5,7 +5,7 @@ import CSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Hashtag from './Hashtag'
 
-const Photo = ({ post, i, increment, comments }) => (
+const Photo = ({ post, i, increment, decrement, comments }) => (
   <figure className="grid-figure">
     <div className="grid-photo-wrap">
       <Link to={`/view/${post.id}`}>
@@ -33,7 +33,7 @@ const Photo = ({ post, i, increment, comments }) => (
       </p>
       <div className="control-buttons">
         <button
-          onClick={() => increment(i)}
+          onClick={() => (post.user_has_liked ? decrement(i) : increment(i))}
           className={post.user_has_liked && 'liked'}
         >
           &hearts; {post.likes.count}

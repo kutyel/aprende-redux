@@ -1,4 +1,4 @@
-import { INCREMENT_LIKES } from '../actions/types'
+import { INCREMENT_LIKES, DECREMENT_LIKES } from '../actions/types'
 
 export default (state = [], { type, index }) => {
   switch (type) {
@@ -7,11 +7,21 @@ export default (state = [], { type, index }) => {
         ...state.slice(0, index),
         {
           ...state[index],
+          user_has_liked: true,
           likes: { count: state[index].likes.count + 1 },
         },
         ...state.slice(index + 1),
       ]
-    // TODO: handle your new DECREMENT_LIKES action!
+    case DECREMENT_LIKES:
+      return [
+        ...state.slice(0, index),
+        {
+          ...state[index],
+          user_has_liked: false,
+          likes: { count: state[index].likes.count - 1 },
+        },
+        ...state.slice(index + 1),
+      ]
     default:
       return state
   }

@@ -1,4 +1,4 @@
-import { ADD_COMMENT } from '../actions/types'
+import { ADD_COMMENT, REMOVE_COMMENT } from '../actions/types'
 
 const postComments = (
   state = [],
@@ -7,7 +7,8 @@ const postComments = (
   switch (type) {
     case ADD_COMMENT:
       return [...state, { from: { full_name }, text }]
-    // TODO: implement your REMOVE_COMMENT logic!
+    case REMOVE_COMMENT:
+      return state.filter(x => x.text !== text)
     default:
       return state
   }
