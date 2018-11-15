@@ -8,7 +8,7 @@ const Single = props => {
   const index = props.posts.findIndex(p => p.id === postId)
   const post = props.posts[index]
   const comments = props.comments[postId] || []
-
+  props.loadComments(postId)
   return (
     <div className="single-photo">
       <Photo i={index} post={post} {...props} />
