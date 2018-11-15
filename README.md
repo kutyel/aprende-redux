@@ -30,8 +30,8 @@ $ npm start # enjoy! 🚀
 9. Go back to to `src/actions/types.js` and fix the FIXME!
 10. Go back to to `src/actions/index.js` and fix the FIXME!
 11. Go to `src/reducers/comments.js`.
-12. Go to the branch `redux-thunk`, and to `src/actions/creators.js` and have a look! 👀
-13. Where would you dispatch the action for `fetchComments`??? 🤔
+12. Go to the branch `redux-thunk`, and to `src/actions/index.js` and have a look! 👀
+13. Where would you dispatch the action for `fetchComments`??? 🤔 (hint: 2 steps)
 14. #BONUS! (lenses 👓)
 
 ---
