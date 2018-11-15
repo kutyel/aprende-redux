@@ -1,17 +1,16 @@
+import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { createStore, applyMiddleware } from 'redux'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 import reducer from './reducers'
-import posts from './data/posts.json'
-import comments from './data/comments.json'
 
-const initialState = { posts, comments }
+const initialState = { posts: [], comments: [] }
 const store = createStore(
   reducer,
   initialState,
-  applyMiddleware(createLogger())
+  applyMiddleware(thunk, createLogger())
 )
 
 export const history = syncHistoryWithStore(browserHistory, store)
