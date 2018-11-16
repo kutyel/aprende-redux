@@ -12,6 +12,10 @@ Code for my Redux Workshop ⚡️
 
 Open this [CodeSandbox](https://codesandbox.io/s/q97z8y8jrq) to learn and play with the basic concepts!
 
+### F.A.Q.
+
+- **Why `redux-thunk` and not `redux-saga`?** Because of [this](https://github.com/kutyel/learn-redux/pull/2)! 🤮
+
 ### Exercises
 
 ```sh
