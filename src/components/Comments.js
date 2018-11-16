@@ -4,35 +4,33 @@ import replace from 'react-string-replace'
 import Mention from './Mention'
 import CommentForm from './CommentForm'
 
-class Comments extends Component {
+export default class extends Component {
   state = { show: true }
-
   toggleComments = () => this.setState(({ show }) => ({ show: !show }))
-
-  renderComment = ({ from: { full_name: name }, text }, i) => (
-    <div className="comment" key={i}>
-      <p>
-        <strong>{name}</strong>
-        {replace(text, /@(\w+)/g, (user, i) => (
-          <Mention key={i} user={user} />
-        ))}
-        <button
-          onClick={() =>
-            this.props.removeComment(this.props.params.postId, text)
-          }
-          className="remove-comment"
-        >
-          &times;
-        </button>
-      </p>
-    </div>
-  )
-
   render = () => (
     <div className="comments">
       {this.state.show && (
         <div className="comments-list">
-          {this.props.postComments.map(this.renderComment)}
+          {this.props.postComments.map(
+            ({ from: { full_name: name }, text }, i) => (
+              <div className="comment" key={i}>
+                <p>
+                  <strong>{name}</strong>
+                  {replace(text, /@(\w+)/g, (user, i) => (
+                    <Mention key={i} user={user} />
+                  ))}
+                  <button
+                    onClick={() =>
+                      this.props.removeComment(this.props.params.postId, i)
+                    }
+                    className="remove-comment"
+                  >
+                    &times;
+                  </button>
+                </p>
+              </div>
+            )
+          )}
           <CommentForm {...this.props} />
         </div>
       )}
@@ -44,5 +42,3 @@ class Comments extends Component {
     </div>
   )
 }
-
-export default Comments

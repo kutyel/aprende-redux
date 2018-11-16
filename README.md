@@ -37,31 +37,3 @@ $ npm start # enjoy! 🚀
 12. Go to the branch `redux-thunk`, and to `src/actions/index.js` and have a look! 👀
 13. Where would you dispatch the action for `fetchComments`??? 🤔 (hint: 2 steps)
 14. ##BONUS## ([lenses](https://github.com/kutyel/aprende-react/pull/2) 👓)
-
----
-
-```js
-// TODO: 1) configure the store:
-const store = createStore(reducer, initialState /*, enhancers */)
-
-// TODO: 2) actions
-export const INCREMENT_LIKES = 'INCREMENT_LIKES'
-// FIXME: export const DECREMENT_LIKES = 'DECREMENT_LIKES'
-export const ADD_COMMENT = 'ADD_COMMENT'
-// FIXME: export const REMOVE_COMMENT = 'REMOVE_COMMENT'
-// FIXME: Bug: use `decrement` and update `user_has_liked`!
-
-// TODO: 3) reducers
-// Must be PURE functions, compute *new* state and NEVER mutate!
-// WARNING! Every reducer runs *every* time an action is called! ⚠️
-// FIXME: create reducers for DECREMENT_LIKES AND REMOVE_COMMENT!
-
-// TODO: 4) UI (connect)
-// FIXME: connect the App component to the actual store!
-
-// TODO: 5) thunks! (async)
-// On a separate branch: setup redux-thunk, and call fetchPosts!
-// FIXME: where would you call `fetchComments`?
-
-// TODO: 6) BONUS!!! (lenses)
-```
