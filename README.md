@@ -1,4 +1,6 @@
-# Aprende Redux 🔄
+![aprende-redux](aprende-redux.png)
+
+# aprende-redux 🔄
 
 Code for my Redux Workshop ⚡️
 
