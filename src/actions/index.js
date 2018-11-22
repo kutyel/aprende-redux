@@ -31,17 +31,13 @@ export const loadCommentsSuccess = (postId, comments) => ({
 })
 
 export const loadPosts = () => dispatch =>
-  fetch(
-    'https://gist.githubusercontent.com/kutyel/8f2d287ceb0a04bf3edb2e435b07f61d/raw'
-  )
+  fetch('https://catstagram-backend.now.sh/')
     .then(res => res.json())
     .then(posts => dispatch(loadPostsSuccess(posts)))
     .catch(console.error)
 
 export const loadComments = mediaId => dispatch =>
-  fetch(
-    'https://gist.githubusercontent.com/kutyel/a6bfe0575bf1b84cecd8bb99e2d922ec/raw'
-  )
+  fetch(`https://catstagram-backend.now.sh/comments/${mediaId}`)
     .then(res => res.json())
     .then(comments => dispatch(loadCommentsSuccess(mediaId, comments)))
     .catch(console.error)
